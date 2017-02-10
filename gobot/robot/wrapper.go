@@ -8,6 +8,7 @@ import (
 	"gobot.io/x/gobot/platforms/sphero/bb8"
 )
 
+// Command represents a command to send to sphero
 type Command struct {
 	ElapsedTime time.Duration
 	Do          func()

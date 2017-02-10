@@ -12,18 +12,31 @@ import (
 )
 
 const (
+	// Crawling sets the speed to very slow
 	Crawling = 10
-	Walking  = 20
-	Running  = 30
+
+	// Walking is normal speed
+	Walking = 20
+
+	// Running is a fast speed
+	Running = 30
 )
 
 const (
+	// North is a compass north
 	North = 0
-	East  = 90
+
+	// East is compass east
+	East = 90
+
+	// South is compass south
 	South = 180
-	West  = 270
+
+	// West is compas west
+	West = 270
 )
 
+// Milliseconds is a convenience function which returns time.Duration
 func Milliseconds(d int) time.Duration {
 	return time.Duration(d) * time.Millisecond
 }
