@@ -1,6 +1,67 @@
-hash: 9a67584f8cc53952bcfeaad66e22749a7bc75855fe785fccff5931831ed7cdc6
-updated: 2017-02-09T16:05:51.349647575Z
-imports: []
+hash: 1d11218cf6ca6f5d092079d35b47d3aa8db1d11add71e5fa20680c3e7eea554a
+updated: 2017-02-10T17:05:57.441459234Z
+imports:
+- name: github.com/currantlabs/ble
+  version: 3cb394d795a0144363b6813b88905daf207761e5
+  subpackages:
+  - darwin
+  - linux
+  - linux/adv
+  - linux/att
+  - linux/gatt
+  - linux/hci
+  - linux/hci/cmd
+  - linux/hci/evt
+  - linux/hci/socket
+- name: github.com/hashicorp/errwrap
+  version: 7554cd9344cec97297fa6649b055a8c98c2a1e55
+- name: github.com/hashicorp/go-multierror
+  version: ed905158d87462226a13fe39ddf685ea65f1c11f
+- name: github.com/mattn/go-colorable
+  version: d228849504861217f796da67fae4f6e347643f15
+- name: github.com/mattn/go-isatty
+  version: 281032e84ae07510239465db46bf442aa44b953a
+- name: github.com/mgutz/ansi
+  version: 9520e82c474b0a04dd04f8a40959027271bab992
+- name: github.com/mgutz/logxi
+  version: aebf8a7d67ab4625e0fd4a665766fef9a709161b
+  subpackages:
+  - v1
+- name: github.com/pkg/errors
+  version: 248dadf4e9068a0b3e79f02ed0a610d935de5302
+- name: github.com/pusher/pusher-http-go
+  version: 5ca293b2520838c828f3b9f8353b842b830540f7
+- name: github.com/raff/goble
+  version: b7d25c075bc714e7987eeef8712a04441d708da4
+  subpackages:
+  - xpc
+- name: github.com/tarm/serial
+  version: 37be519d49878d0098e34fb614136b81e6c87861
+- name: gobot.io/x/gobot
+  version: 3bf77214c74e3b5db71f220614c9b6fa6d71d73e
+  subpackages:
+  - platforms/ble
+  - platforms/sphero
+  - platforms/sphero/bb8
+  - platforms/sphero/ollie
+- name: golang.org/x/net
+  version: a689eb3bc4b53af70390acc3cf68c9f549b6b8d6
+  subpackages:
+  - context
+- name: golang.org/x/sys
+  version: aaabbdc969c3935a2a7f61efac801e7163c73a2a
+  subpackages:
+  - unix
 testImports:
+- name: github.com/davecgh/go-spew
+  version: 6d212800a42e8ab5c146b8ace3490ee17e5225f9
+  subpackages:
+  - spew
+- name: github.com/pmezard/go-difflib
+  version: d8ed2627bdf02c080bf22230dbb337003b7aba2d
+  subpackages:
+  - difflib
 - name: github.com/stretchr/testify
   version: 69483b4bd14f5845b5a1e55bca19e954e827f1d0
+  subpackages:
+  - assert

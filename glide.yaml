@@ -1,7 +1,10 @@
 package: github.com/WWGLondon/graduation
 import:
 - package: gobot.io/x/gobot
-  version: ^1.1.0
+  version: feature/ble-multiple-adaptors
+  subpackages:
+  - platforms/ble
+  - platforms/sphero
 testImport:
 - package: github.com/stretchr/testify
   version: ^1.1.4

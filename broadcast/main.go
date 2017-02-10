@@ -11,8 +11,8 @@ func main() {
 	}
 
 	data := map[string][]string{}
-	data["directions"] = []string{"90", "180", "30"}
-	data["headings"] = []string{"30", "30", "30"}
+	data["speed"] = []string{"walking", "running", "running", "crawling"}
+	data["direction"] = []string{"North", "East", "South", "West"}
 
 	client.Trigger("test_channel", "my_event", data)
 }
