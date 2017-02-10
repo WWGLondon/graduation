@@ -4,9 +4,15 @@ const (
 	SubscribeEvent = "pusher:subscribe"
 )
 
-type Message struct {
+type OutMessage struct {
 	Event string `json:"event"`
 	Data  Data   `json:"data"`
+}
+
+type InMessage struct {
+	Event   string `json:"event"`
+	Channel string `json:"channel,ommitempty"`
+	Data    string
 }
 
 type Data struct {

@@ -37,6 +37,6 @@ func main() {
 
 	fmt.Println("Listening to channel")
 	for message := range c {
-		fmt.Println("Got Message ", message)
+		fmt.Printf("Got Message: %#v\n", message)
 	}
 }

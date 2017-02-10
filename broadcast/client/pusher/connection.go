@@ -17,18 +17,17 @@ func init() {
 
 func runLoop() {
 	for newListener := range listeners {
-		fmt.Println("New Listener")
 		go newListener.listen()
 	}
 }
 
 type Connection struct {
 	ws            *websocket.Conn
-	subscriptions map[string]chan Message
+	subscriptions map[string]chan InMessage
 }
 
 func (c *Connection) Connect(url *url.URL, origin string) error {
-	c.subscriptions = make(map[string]chan Message)
+	c.subscriptions = make(map[string]chan InMessage)
 
 	ws, err := websocket.Dial(url.String(), "", origin)
 	if err != nil {
@@ -47,10 +46,10 @@ func (c *Connection) Connect(url *url.URL, origin string) error {
 	return nil
 }
 
-func (c *Connection) Subscribe(channel string) (chan Message, error) {
-	subscribeChannel := make(chan Message)
+func (c *Connection) Subscribe(channel string) (chan InMessage, error) {
+	subscribeChannel := make(chan InMessage)
 
-	event := Message{
+	event := OutMessage{
 		Event: SubscribeEvent,
 		Data: Data{
 			Channel: channel,
@@ -61,8 +60,6 @@ func (c *Connection) Subscribe(channel string) (chan Message, error) {
 	if err != nil {
 		return subscribeChannel, err
 	}
-
-	fmt.Printf("%#v\n", string(data))
 
 	_, err = c.ws.Write(data)
 	if err != nil {
@@ -79,13 +76,22 @@ func (c *Connection) Subscribe(channel string) (chan Message, error) {
 }
 
 func (c *Connection) listen() {
-	fmt.Println("Start listen")
 	var buffer = make([]byte, 512)
 
 	for {
 		if n, err := c.ws.Read(buffer); err == nil {
 			if n > 1 {
-				fmt.Printf("Received: %s.\n", buffer[:n])
+				event := InMessage{}
+				err := json.Unmarshal(buffer[:n], &event)
+				if err != nil {
+					fmt.Println(err)
+				}
+
+				subscriber, ok := c.subscriptions[event.Channel]
+				if ok {
+					subscriber <- event
+				}
+
 			}
 		}
 	}
