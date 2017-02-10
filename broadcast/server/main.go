@@ -1,12 +1,17 @@
 package main
 
-import pusher "github.com/pusher/pusher-http-go"
+import (
+	"fmt"
+
+	pusher "github.com/pusher/pusher-http-go"
+)
 
 func main() {
 	client := pusher.Client{
 		AppId:   "300550",
 		Key:     "c24dabd6884e70c4eafb",
 		Secret:  "edc884fc9c00031fa8cb",
+		Secure:  true,
 		Cluster: "eu",
 	}
 
@@ -15,4 +20,6 @@ func main() {
 	data["direction"] = []string{"North", "East", "South", "West"}
 
 	client.Trigger("test_channel", "my_event", data)
+
+	fmt.Println("Sent Message")
 }
