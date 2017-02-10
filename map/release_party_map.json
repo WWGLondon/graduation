@@ -1,0 +1,8 @@
+[
+  {"direction":"North","mode":"Walking", "order": 1},
+  {"direction":"West","mode":"Crawling"},
+  {"direction":"North","mode":"Running"},
+  {"direction":"East","mode":"Running"},
+  {"direction":"South","mode":"Crawling"},
+  {"direction":"North","mode":"Walking"}
+]

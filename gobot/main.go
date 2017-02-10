@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"time"
 
 	"github.com/WWGLondon/graduation/gobot/robot"
@@ -61,26 +62,37 @@ func main() {
 	robot.Start()
 }
 
-// c1 := robot.Command{ElapsedTime: Milliseconds(1000), Do: func() { driver.Roll(Walking, West) }}
-// c2 := robot.Command{ElapsedTime: Milliseconds(1000), Do: func() { driver.Roll(Running, South) }}
-// c3 := robot.Command{ElapsedTime: Milliseconds(1000), Do: func() { driver.Roll(Crawling, East) }}
-// c := robot.Commands{c1, c2, c3}
 func getCommands(driver *bb8.BB8Driver) robot.Commands {
 	c := robot.Commands{}
 
 	c.Do(func() {
-		fmt.Println("someing")
-		driver.Roll(Walking, West)
+		log.Println("Walking North")
+		driver.Roll(Walking, North)
 	}).For(Milliseconds(3000))
 
 	c.Do(func() {
-		fmt.Println("else")
-		driver.Roll(Running, South)
+		log.Println("Crawling West")
+		driver.Roll(Crawling, West)
 	}).For(Milliseconds(3000))
 
 	c.Do(func() {
-		fmt.Println("here")
-		driver.Roll(Walking, East)
+		log.Println("Running North")
+		driver.Roll(Running, North)
+	}).For(Milliseconds(3000))
+
+	c.Do(func() {
+		log.Println("Running East")
+		driver.Roll(Running, East)
+	}).For(Milliseconds(3000))
+
+	c.Do(func() {
+		log.Println("Crawling South")
+		driver.Roll(Crawling, South)
+	}).For(Milliseconds(3000))
+
+	c.Do(func() {
+		log.Println("Walking North")
+		driver.Roll(Walking, North)
 	}).For(Milliseconds(3000))
 
 	c.Do(func() {
@@ -90,3 +102,15 @@ func getCommands(driver *bb8.BB8Driver) robot.Commands {
 
 	return c
 }
+
+// # Team 4
+// 1. Consruct a Sphero client
+// 2. Decrypt directions -- maybe
+// 3. Convert the data from pusher into Sphero commands
+// 4. Deliver the code to the release party
+
+// CRYPTO
+//NORTH
+//[char number][char number]...*[mesage id]
+// 12142016*2
+// divide by messge number, break into 2 number blocks, convert to letter, combine
