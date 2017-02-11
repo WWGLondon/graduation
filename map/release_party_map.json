@@ -1,8 +1,8 @@
 [
   {"direction":"North","mode":"Walking", "order": 1},
-  {"direction":"West","mode":"Crawling"},
-  {"direction":"North","mode":"Running"},
-  {"direction":"East","mode":"Running"},
-  {"direction":"South","mode":"Crawling"},
-  {"direction":"North","mode":"Walking"}
+  {"direction":"West","mode":"Crawling", "order": 3},
+  {"direction":"North","mode":"Running", "order": 6},
+  {"direction":"East","mode":"Running", "order": 4},
+  {"direction":"South","mode":"Crawling", "order": 5},
+  {"direction":"North","mode":"Walking", "order": 2}
 ]
