@@ -7,7 +7,7 @@
 ## Data structure
 
 ```go
-	data := map[string][]string{}
-	data["speed"] = []string{"walking", "running", "running", "crawling"}
-	data["direction"] = []string{"North", "East", "South", "West"}
+	data := map[string]string{}
+	data["speed"] = "Walking" // Crawling, Running
+	data["direction"] = "North" //East, South, West
 ```
