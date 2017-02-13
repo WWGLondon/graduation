@@ -10,7 +10,7 @@ func main() {
 			ClientVersion: "0.1",
 			APIVersion:    "7",
 			Protocol:      "wss",
-			AppId:         "c24dabd6884e70c4eafb",
+			AppId:         "APP_ID",
 		}
 	*/
 }
