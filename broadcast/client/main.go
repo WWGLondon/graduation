@@ -33,6 +33,7 @@ func main() {
 	}
 
 	for m := range events {
+		// Update the post URL with actual address where you are posting this to
 		resp, err := http.Post("http://172.16.14.244:7001/input", "application/json", bytes.NewBufferString(m.Data))
 		if err != nil {
 			fmt.Println(err)
